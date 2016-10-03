@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5701c322186ebe11a90e096f9d9ecc0b",
-    "content-hash": "8d9f8cd0c721e614b2ca4f40c7fdba39",
+    "hash": "1f4d25855a67d1fcc718498386b31913",
+    "content-hash": "4cfc950290049cd4c6bb9e063982c682",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -81,21 +81,24 @@
         },
         {
             "name": "devimteam/silex-cors-provider",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/devimteam/silex-cors-provider.git",
-                "reference": "ba39d29bf57543f8bdd4db2a58659606394d8faf"
+                "reference": "bc52b4dde1a58058af9ff18ec09a0105e987b2b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/devimteam/silex-cors-provider/zipball/ba39d29bf57543f8bdd4db2a58659606394d8faf",
-                "reference": "ba39d29bf57543f8bdd4db2a58659606394d8faf",
+                "url": "https://api.github.com/repos/devimteam/silex-cors-provider/zipball/bc52b4dde1a58058af9ff18ec09a0105e987b2b4",
+                "reference": "bc52b4dde1a58058af9ff18ec09a0105e987b2b4",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7",
                 "silex/silex": "^2.0"
+            },
+            "replace": {
+                "devimteam/cors-provider": "1.0.1"
             },
             "require-dev": {
                 "codeception/codeception": "^2.2"
@@ -108,20 +111,20 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "Enable CORS for your project",
-            "time": "2016-09-30 11:18:35"
+            "time": "2016-10-03 10:42:26"
         },
         {
             "name": "devimteam/silex-doctrine-extend-provider",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/devimteam/silex-doctrine-extend-provider.git",
-                "reference": "a73578ae422e02086b0a661ce5aaa8a74644e637"
+                "reference": "01d9b5fab93f863d17363bb82b6d036c3b4eb4e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/devimteam/silex-doctrine-extend-provider/zipball/a73578ae422e02086b0a661ce5aaa8a74644e637",
-                "reference": "a73578ae422e02086b0a661ce5aaa8a74644e637",
+                "url": "https://api.github.com/repos/devimteam/silex-doctrine-extend-provider/zipball/01d9b5fab93f863d17363bb82b6d036c3b4eb4e0",
+                "reference": "01d9b5fab93f863d17363bb82b6d036c3b4eb4e0",
                 "shasum": ""
             },
             "require": {
@@ -133,31 +136,34 @@
                 "symfony/event-dispatcher": "^3.1",
                 "vlobchuk/isolate-console-provider": "dev-master"
             },
+            "replace": {
+                "devimteam/doctrine-extensions-provider": "dev-master"
+            },
             "require-dev": {
                 "codeception/codeception": "^2.2"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Devim\\Provider\\DoctrineExtensionsServiceProvider\\": "src/"
+                    "Devim\\Provider\\DoctrineExtendServiceProvider\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "Pocket of doctrine extensions",
-            "time": "2016-09-30 11:22:22"
+            "time": "2016-10-03 10:22:08"
         },
         {
             "name": "devimteam/silex-doctrine-migrations-provider",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/devimteam/silex-doctrine-migrations-provider.git",
-                "reference": "9df40d808dc9d904e2fe0492c1a22b3109a230e4"
+                "reference": "60b5d025af86f63e377e28bbeb64bbdf2d5c0942"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/devimteam/silex-doctrine-migrations-provider/zipball/9df40d808dc9d904e2fe0492c1a22b3109a230e4",
-                "reference": "9df40d808dc9d904e2fe0492c1a22b3109a230e4",
+                "url": "https://api.github.com/repos/devimteam/silex-doctrine-migrations-provider/zipball/60b5d025af86f63e377e28bbeb64bbdf2d5c0942",
+                "reference": "60b5d025af86f63e377e28bbeb64bbdf2d5c0942",
                 "shasum": ""
             },
             "require": {
@@ -166,6 +172,9 @@
                 "php": ">=7",
                 "silex/silex": "~2.0.3-DEV",
                 "vlobchuk/isolate-console-provider": "dev-master"
+            },
+            "replace": {
+                "devimteam/doctrine-migrations-provider": "dev-master"
             },
             "require-dev": {
                 "codeception/codeception": "~2.2.0-RC2"
@@ -178,20 +187,20 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "Service provider for doctrine migrations bundle",
-            "time": "2016-09-30 11:24:19"
+            "time": "2016-10-03 12:16:05"
         },
         {
             "name": "devimteam/silex-security-jwt-provider",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/devimteam/silex-security-jwt-provider.git",
-                "reference": "fffbef11b94542082a8bce756cade13e5e676ef5"
+                "reference": "fe243901efd824e1646ab58a005ccda3ea067446"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/devimteam/silex-security-jwt-provider/zipball/fffbef11b94542082a8bce756cade13e5e676ef5",
-                "reference": "fffbef11b94542082a8bce756cade13e5e676ef5",
+                "url": "https://api.github.com/repos/devimteam/silex-security-jwt-provider/zipball/fe243901efd824e1646ab58a005ccda3ea067446",
+                "reference": "fe243901efd824e1646ab58a005ccda3ea067446",
                 "shasum": ""
             },
             "require": {
@@ -199,6 +208,9 @@
                 "php": ">=7.0.7",
                 "silex/silex": "~2.0.3-DEV",
                 "symfony/security": "~3.0"
+            },
+            "replace": {
+                "devimteam/security-jwt-provider": "dev-master"
             },
             "require-dev": {
                 "codeception/codeception": "^2.2"
@@ -211,7 +223,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "Silex Security JWT Service Provider",
-            "time": "2016-09-30 11:31:09"
+            "time": "2016-10-03 12:37:34"
         },
         {
             "name": "dflydev/doctrine-orm-service-provider",

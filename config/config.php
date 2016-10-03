@@ -6,7 +6,7 @@ namespace App;
 /** @var \Closure $getEnvByApp */
 
 use App\DataFixture\Provider\DateTimeProvider;
-use Devim\Provider\DoctrineExtensionsServiceProvider\Type\JsonbArrayType;
+use Devim\Provider\DoctrineExtendServiceProvider\Type\JsonbArrayType;
 use Doctrine\DBAL\PostgresTypes\InetType;
 use Doctrine\DBAL\PostgresTypes\IntArrayType;
 use Doctrine\DBAL\PostgresTypes\TextArrayType;
