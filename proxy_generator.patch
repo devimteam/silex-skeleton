@@ -1,0 +1,63 @@
+Index: lib/Doctrine/Common/Proxy/ProxyGenerator.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- lib/Doctrine/Common/Proxy/ProxyGenerator.php	(date 1469518543000)
++++ lib/Doctrine/Common/Proxy/ProxyGenerator.php	(revision )
+@@ -37,7 +37,7 @@
+      * Used to match very simple id methods that don't need
+      * to be decorated since the identifier is known.
+      */
+-    const PATTERN_MATCH_ID_METHOD = '((public\s+)?(function\s+%s\s*\(\)\s*)\s*{\s*return\s*\$this->%s;\s*})i';
++    const PATTERN_MATCH_ID_METHOD = '((public\s+)?(function\s+%s\s*\(\)\s*)\s*(?::\s*\\\\?[a-z_\x7f-\xff][\w\x7f-\xff]*(?:\\\\[a-z_\x7f-\xff][\w\x7f-\xff]*)*\s*)?{\s*return\s*\$this->%s;\s*})i';
+ 
+     /**
+      * The namespace that contains all proxy classes.
+@@ -819,7 +819,7 @@
+         $baseDirectory = $baseDirectory ?: $this->proxyDirectory;
+ 
+         return rtrim($baseDirectory, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . Proxy::MARKER
+-            . str_replace('\\', '', $className) . '.php';
++        . str_replace('\\', '', $className) . '.php';
+     }
+ 
+     /**
+@@ -902,7 +902,9 @@
+             $parameterDefinition = '';
+ 
+             if ($parameterType = $this->getParameterType($class, $method, $param)) {
+-                $parameterDefinition .= $parameterType . ' ';
++                $nullablePrefix = $param->allowsNull() && !$param->isDefaultValueAvailable() ? '?' : '';
++
++                $parameterDefinition .= $nullablePrefix . $parameterType . ' ';
+             }
+ 
+             if ($param->isPassedByReference()) {
+@@ -1018,20 +1020,22 @@
+ 
+         $returnType = $method->getReturnType();
+ 
++        $nullablePrefix = method_exists($returnType, 'allowsNull') && $returnType->allowsNull() ? '?' : '';
++
+         if ($returnType->isBuiltin()) {
+-            return ': ' . $returnType;
++            return ': '  . $nullablePrefix . $returnType;
+         }
+ 
+         $nameLower = strtolower((string) $returnType);
+ 
+         if ('self' === $nameLower) {
+-            return ': \\' . $method->getDeclaringClass()->getName();
++            return ': ' . $nullablePrefix . '\\' . $method->getDeclaringClass()->getName();
+         }
+ 
+         if ('parent' === $nameLower) {
+-            return ': \\' . $method->getDeclaringClass()->getParentClass()->getName();
++            return ': ' . $nullablePrefix . '\\' . $method->getDeclaringClass()->getParentClass()->getName();
+         }
+ 
+-        return ': \\' . (string) $returnType;
++        return ': ' . $nullablePrefix . '\\' . (string) $returnType;
+     }
+ }

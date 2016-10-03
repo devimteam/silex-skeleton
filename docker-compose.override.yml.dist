@@ -1,0 +1,14 @@
+version: '2'
+services:
+  fpm:
+    build: .
+    environment:
+      GIT_OAUTH_TOKEN: ''
+      XDEBUG_REMOTE_HOST: 127.0.0.1
+      LOCAL_DB_HOST: 127.0.0.1
+      LOCAL_DB_NAME: 'db_name'
+      LOCAL_DB_USER: 'db_user'
+      LOCAL_DB_PASSWORD: 'db_password'
+      LOCAL_REDIS_HOST: 127.0.0.1
+      LOCAL_REDIS_PORT: 6379
+      LOCAL_REDIS_AUTH: ''

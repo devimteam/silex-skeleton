@@ -1,0 +1,17 @@
+<?php
+namespace App;
+
+use Silex\Application;
+
+/** @var Application $app */
+
+$app['name'] .= '[Development]';
+$app['debug'] = true;
+
+$app->get('/c3/{uri}', function () {
+    try {
+        include __DIR__ . '/../src/c3.php';
+    } catch (\Throwable $e) {
+    }
+    exit();
+})->assert('uri', '.*');

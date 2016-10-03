@@ -1,0 +1,49 @@
+{
+    "type": "project",
+    "name": "devimteam/silex-skeleton",
+    "description": "",
+    "keywords": [],
+    "license": "",
+    "authors": [],
+    "minimum-stability": "beta",
+    "config": {
+        "vendor-dir": "runtime/vendor",
+        "secure-http": false
+    },
+    "scripts": {
+        "post-install-cmd": "App\\Composer\\Script::postInstall",
+        "post-update-cmd": "App\\Composer\\Script::postUpdate"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/App"
+        }
+    },
+    "require": {
+        "php": ">=7.1",
+        "silex/silex": "~2.0.4-DEV",
+        "symfony/serializer": "~3.0",
+        "symfony/finder": "~3.0",
+        "symfony/security": "~3.0",
+        "symfony/validator": "~3.0",
+        "monolog/monolog": "~1.19.0",
+        "doctrine/dbal": "~2.5.4",
+        "doctrine/inflector": "~1.1",
+        "doctrine/migrations": "~1.4.1",
+        "doctrine/orm": "~2.5.4",
+        "dflydev/doctrine-orm-service-provider": "~2.0.0",
+        "vlobchuk/isolate-console-provider": "dev-master",
+        "oro/doctrine-extensions": "~1.0",
+        "opensoft/doctrine-postgres-types": "~1.2",
+        "flow/jsonpath": "~0.3.1",
+        "devimteam/silex-cors-provider": "^1.0.0",
+        "devimteam/silex-doctrine-migrations-provider": "^1.0.0",
+        "devimteam/silex-doctrine-extend-provider": "^1.0.0",
+        "devimteam/silex-security-jwt-provider": "^1.0.0",
+        "devimteam/rpc-server": "^1.0.0"
+    },
+    "require-dev": {
+        "nelmio/alice": "~2.1",
+        "codeception/codeception": "~2.2.0-RC2"
+    }
+}

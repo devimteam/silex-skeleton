@@ -1,0 +1,10 @@
+.DS_Store
+/.idea
+docker-compose.override.yml
+/runtime
+/config/config.local.php
+tests/_output/*
+tests/_support/_generated/*
+src/logs
+/.rnd
+/src/c3.php

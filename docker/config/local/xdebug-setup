@@ -1,0 +1,33 @@
+#!/bin/bash
+
+PHP_FPM_PATH=/etc/php/7.1/fpm/conf.d/
+PHP_CLI_PATH=/etc/php/7.1/cli/conf.d/
+
+if [ -z "$XDEBUG_REMOTE_HOST" ]; then
+    XDEBUG_REMOTE_HOST=locahost
+fi
+
+if [ -z "$XDEBUG_REMOTE_PORT" ]; then
+    XDEBUG_REMOTE_PORT=9090
+fi
+
+if [ -z "$XDEBUG_IDE_KEY" ]; then
+    XDEBUG_IDE_KEY=PHPSTORM
+fi
+
+echo 'zend_extension=xdebug.so' > ${PHP_FPM_PATH}20-xdebug.ini
+echo 'zend_extension=xdebug.so' > ${PHP_CLI_PATH}20-xdebug.ini
+
+echo 'xdebug.idekey='${XDEBUG_IDE_KEY} >> ${PHP_FPM_PATH}20-xdebug.ini
+echo 'xdebug.remote_connect_back=1' >> ${PHP_FPM_PATH}20-xdebug.ini
+echo 'xdebug.remote_enable=1' >> ${PHP_FPM_PATH}20-xdebug.ini
+echo 'xdebug.remote_autostart=1' >> ${PHP_FPM_PATH}20-xdebug.ini
+echo 'xdebug.remote_host='${XDEBUG_REMOTE_HOST} >> ${PHP_FPM_PATH}20-xdebug.ini
+echo 'xdebug.remote_port='${XDEBUG_REMOTE_PORT} >> ${PHP_FPM_PATH}20-xdebug.ini
+
+echo 'xdebug.idekey='${XDEBUG_IDE_KEY} >> ${PHP_CLI_PATH}20-xdebug.ini
+echo 'xdebug.remote_connect_back=1' >> ${PHP_CLI_PATH}20-xdebug.ini
+echo 'xdebug.remote_enable=1' >> ${PHP_CLI_PATH}20-xdebug.ini
+echo 'xdebug.remote_autostart=1' >> ${PHP_CLI_PATH}20-xdebug.ini
+echo 'xdebug.remote_host='${XDEBUG_REMOTE_HOST} >> ${PHP_CLI_PATH}20-xdebug.ini
+echo 'xdebug.remote_port='${XDEBUG_REMOTE_PORT} >> ${PHP_CLI_PATH}20-xdebug.ini
