@@ -25,15 +25,15 @@ fpm:
 ```
 
 Set env for PostgreSQL credentials:
- - {APP_ID}_DB_NAME
- - {APP_ID}_DB_HOST
- - {APP_ID}_DB_USER
- - {APP_ID}_DB_PASSWORD
+ - {APP_ENV}_DB_NAME
+ - {APP_ENV}_DB_HOST
+ - {APP_ENV}_DB_USER
+ - {APP_ENV}_DB_PASSWORD
 
 Set env for Redis credentials:
- - {APP_ID}_REDIS_HOST
- - {APP_ID}_REDIS_PORT
- - {APP_ID}_REDIS_AUTH
+ - {APP_ENV}_REDIS_HOST
+ - {APP_ENV}_REDIS_PORT
+ - {APP_ENV}_REDIS_AUTH
 
 Copy local dev config
 
@@ -70,7 +70,7 @@ chmod 777 -R runtime/
 ### Prepare Database
 
 ```
-docker-compose exec db createdb collectors_dev
+docker-compose exec db createdb project_dev
 docker-compose exec fpm bin/console orm:schema-tool:create
 ```
 
