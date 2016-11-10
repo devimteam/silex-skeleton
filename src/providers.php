@@ -4,6 +4,7 @@ namespace App;
 
 /* @var Application $app */
 
+use App\Provider\DoctrinePlatformProvider\DoctrinePlatformProvider;
 use Silex\Application;
 use Silex\Provider\DoctrineServiceProvider;
 use Silex\Provider\MonologServiceProvider;
@@ -28,4 +29,5 @@ $app
     ->register(new ValidatorServiceProvider())
     ->register(new ConsoleServiceProvider())
     ->register(new SecurityServiceProvider())
-    ->register(new CorsServiceProvider());
+    ->register(new CorsServiceProvider())
+    ->register(new DoctrinePlatformProvider());
