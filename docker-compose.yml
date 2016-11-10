@@ -13,12 +13,13 @@ services:
     build: .
     environment:
       APP_ENV: "local"
+      GIT_OAUTH_TOKEN: "ec4f2ade0ed38eb8f37661a9fb22167a7296e2fb"
       COMPOSER_CACHE_DIR: /var/data/composer
+      XDEBUG_REMOTE_HOST: 192.168.2.71
     volumes:
       - ./:/var/www
-      - ./docker/config/local/fpm/www.conf:/etc/php/7.1/fpm/pool.d/www.conf
-      - ./docker/config/local/fpm/php.ini:/etc/php/7.1/fpm/php.ini
-      - ./docker/config/local/fpm/php.ini:/etc/php/7.1/cli/php.ini
+      - ./docker/config/local/fpm/www.conf:/usr/local/etc/php-fpm.d/www.conf
+      - ./docker/config/local/fpm/php.ini:/usr/local/etc/php/php.ini
       - composer_data:/var/data/composer
 
 volumes:

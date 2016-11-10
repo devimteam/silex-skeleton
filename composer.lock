@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1f4d25855a67d1fcc718498386b31913",
-    "content-hash": "4cfc950290049cd4c6bb9e063982c682",
+    "hash": "61f8ec675b426751237e606e96610bd4",
+    "content-hash": "4dc37f5835dfd1457b04f7b2e240b1d1",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -151,43 +151,6 @@
             "notification-url": "https://packagist.org/downloads/",
             "description": "Pocket of doctrine extensions",
             "time": "2016-10-03 10:22:08"
-        },
-        {
-            "name": "devimteam/silex-doctrine-migrations-provider",
-            "version": "1.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/devimteam/silex-doctrine-migrations-provider.git",
-                "reference": "60b5d025af86f63e377e28bbeb64bbdf2d5c0942"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/devimteam/silex-doctrine-migrations-provider/zipball/60b5d025af86f63e377e28bbeb64bbdf2d5c0942",
-                "reference": "60b5d025af86f63e377e28bbeb64bbdf2d5c0942",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/migrations": "~1.4.1",
-                "doctrine/orm": "~2.5.4",
-                "php": ">=7",
-                "silex/silex": "~2.0.3-DEV",
-                "vlobchuk/isolate-console-provider": "dev-master"
-            },
-            "replace": {
-                "devimteam/doctrine-migrations-provider": "dev-master"
-            },
-            "require-dev": {
-                "codeception/codeception": "~2.2.0-RC2"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Devim\\Provider\\DoctrineMigrationsServiceProvider\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "description": "Service provider for doctrine migrations bundle",
-            "time": "2016-10-03 12:16:05"
         },
         {
             "name": "devimteam/silex-security-jwt-provider",

@@ -1,0 +1,61 @@
+#!/usr/bin/env php
+<?php
+use Doctrine\DBAL\Migrations\Configuration\Configuration;
+use Doctrine\DBAL\Migrations\OutputWriter;
+use Doctrine\DBAL\Tools\Console\Helper\ConnectionHelper;
+use Symfony\Component\Console\Application;
+use Symfony\Component\Console\Helper\HelperSet;
+use Symfony\Component\Console\Helper\QuestionHelper;
+use Symfony\Component\Console\Output\ConsoleOutput;
+
+set_time_limit(0);
+
+require __DIR__ . '/../src/app.php';
+
+/** @var \Silex\Application $app */
+
+$console = new Application();
+
+$commands = [
+    'Doctrine\DBAL\Migrations\Tools\Console\Command\ExecuteCommand',
+    'Doctrine\DBAL\Migrations\Tools\Console\Command\GenerateCommand',
+    'Doctrine\DBAL\Migrations\Tools\Console\Command\MigrateCommand',
+    'Doctrine\DBAL\Migrations\Tools\Console\Command\StatusCommand',
+    'Doctrine\DBAL\Migrations\Tools\Console\Command\VersionCommand',
+];
+
+$helperSet = new HelperSet(array(
+    'connection' => new ConnectionHelper($app['db']),
+    'question'   => new QuestionHelper(),
+));
+
+if (isset($app['orm.em'])) {
+//             if we use ORM, helper set will require EntityManagerHelper from Doctrine ORM package
+    $helperSet->set(new \Doctrine\ORM\Tools\Console\Helper\EntityManagerHelper($app['orm.em']), 'em');
+    $commands[] = 'Doctrine\DBAL\Migrations\Tools\Console\Command\DiffCommand';
+}
+
+$console->setHelperSet($helperSet);
+
+$app['migrations.output_writer'] = new OutputWriter(
+            function ($message) {
+                $output = new ConsoleOutput();
+                $output->writeln($message);
+            }
+        );
+
+$configuration = new Configuration($app['db'], $app['migrations.output_writer']);
+$configuration->setMigrationsDirectory($app['migrations.directory']);
+$configuration->setMigrationsNamespace($app['migrations.namespace']);
+$configuration->setName($app['migrations.name']);
+$configuration->setMigrationsTableName($app['migrations.table_name']);
+$configuration->registerMigrationsFromDirectory($app['migrations.directory']);
+
+foreach ($commands as $name) {
+    $command = new $name();
+    $command->setMigrationConfiguration($configuration);
+    $console->add($command);
+}
+
+
+$console->run();

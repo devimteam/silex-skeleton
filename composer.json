@@ -37,7 +37,6 @@
         "opensoft/doctrine-postgres-types": "~1.2",
         "flow/jsonpath": "~0.3.1",
         "devimteam/silex-cors-provider": "^1.0",
-        "devimteam/silex-doctrine-migrations-provider": "^1.0",
         "devimteam/silex-doctrine-extend-provider": "^1.0",
         "devimteam/silex-security-jwt-provider": "^1.0",
         "devimteam/rpc-server": "^1.0"
